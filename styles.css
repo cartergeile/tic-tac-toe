@@ -1,26 +1,46 @@
 body {
-  background-color: beige;
-  margin: 0;
+  text-align: center;
 }
 
-.board {
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  justify-items: center;
-  align-items: center;
-  grid-template-columns: repeat(3, auto);
+h1 {
+  color: rgb(20, 77, 151);
+  font-size: 50px;
 }
 
-.cell {
-  width: let(--cell-size);
-  height: let(--cell-size);
+#b1, #b2, #b3, #b4, #b5, #b6, #b7, #b8, #b9 {
+  width: 100px;
+  height: 100px;
+  margin: auto;
   border: 1px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  cursor: pointer;
+  border-radius: 6px;
+  font-size: 50px;
+  text-align: center;
+}
+
+#button {
+  box-sizing: border-box;
+  width: 95px;
+  height: 40px;
+  border: 1px solid black;
+  margin: auto;
+  border-radius: 5px;
+  font-family: sans-serif;
+  background-color: rgb(20, 77, 151);
+  color: white;
+}
+
+#button:hover {
+  background-color: gray;
+  color: black;
+}
+
+#print {
+  font-family: sans-serif;
+  color: rgb(20, 77, 151);
+  font-size: 30px;
+}
+
+#instructions {
+  color: rgb(28, 83, 115);
+  font-size: 20px;
 }

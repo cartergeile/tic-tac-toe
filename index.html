@@ -4,28 +4,43 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tic Tac Toe</title>
-  <link rel="Stylesheet" href="styles.css">
-</head>
-<body>
-  <h1>Tic Tac Toe</h1>
-    <div class="board" id="board">
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-    </div>
-    <div class="winning-message" id="winningMessage">
-      <div id="winningMessageText"></div>
-      <button id="restartButton">Restart</button>
-    </div>
-
-
+  <title>Tik Tac Toe</title>
+  <link rel="stylesheet" href="styles.css">
   <script src="app.js"></script>
+</head>
+
+
+<body>
+  <div id="main">
+
+    <h1>Tic Tac Toe</h1>
+
+    <p id="instructions"> Game starts by tapping on a box<br><br>First Player    starts as <b>Player X</b><br>And<br>Second Player as <b>Player O</b>
+    </p>
+
+    <br><br>
+    <input type="text" id="b1" onclick="myFunc_3(); myFunc();" readonly>
+    <input type="text" id="b2" onclick="myFunc_4(); myFunc();" readonly>
+    <input type="text" id="b3" onclick="myFunc_5(); myFunc();" readonly>
+    <br><br>
+    <input type="text" id="b4" onclick="myFunc_6(); myFunc();" readonly>
+    <input type="text" id="b5" onclick="myFunc_7(); myFunc();" readonly>
+    <input type="text" id="b6" onclick="myFunc_8(); myFunc();" readonly>
+    <br><br>
+    <input type="text" id="b7" onclick="myFunc_9(); myFunc();" readonly>
+    <input type="text" id="b8" onclick="myFunc_10(); myFunc();" readonly>
+    <input type="text" id="b9" onclick="myFunc_11(); myFunc();" readonly>
+
+    <br><br><br>
+
+    <button id="button" onclick="myFunc_2()">RESET</button>
+
+    <br><br>
+
+    <p id="print"></p>
+  
+  </div>
+
+<script src="app.js"></script>
 </body>
 </html>
