@@ -9,38 +9,24 @@
   <script src="app.js"></script>
 </head>
 
-
 <body>
-  <div id="main">
-
-    <h1>Tic Tac Toe</h1>
-
-    <p id="instructions"> Game starts by tapping on a box<br><br>First Player    starts as <b>Player X</b><br>And<br>Second Player as <b>Player O</b>
-    </p>
-
-    <br><br>
-    <input type="text" id="b1" onclick="myFunc_3(); myFunc();" readonly>
-    <input type="text" id="b2" onclick="myFunc_4(); myFunc();" readonly>
-    <input type="text" id="b3" onclick="myFunc_5(); myFunc();" readonly>
-    <br><br>
-    <input type="text" id="b4" onclick="myFunc_6(); myFunc();" readonly>
-    <input type="text" id="b5" onclick="myFunc_7(); myFunc();" readonly>
-    <input type="text" id="b6" onclick="myFunc_8(); myFunc();" readonly>
-    <br><br>
-    <input type="text" id="b7" onclick="myFunc_9(); myFunc();" readonly>
-    <input type="text" id="b8" onclick="myFunc_10(); myFunc();" readonly>
-    <input type="text" id="b9" onclick="myFunc_11(); myFunc();" readonly>
-
-    <br><br><br>
-
-    <button id="button" onclick="myFunc_2()">RESET</button>
-
-    <br><br>
-
-    <p id="print"></p>
-  
-  </div>
-
+  <div id="game">
+      <h1>Tic Tac Toe</h1>
+      <div id ='cellContainer'>
+          <div cellIndex="0" class="cell"></div> 
+          <div cellIndex="1" class="cell"></div>
+          <div cellIndex="2" class="cell"></div>
+          <div cellIndex="3" class="cell"></div>
+          <div cellIndex="4" class="cell"></div>
+          <div cellIndex="5" class="cell"></div>
+          <div cellIndex="6" class="cell"></div>
+          <div cellIndex="7" class="cell"></div>
+          <div cellIndex="8" class="cell"></div>   
+       </div>  
+       <h2 id="statusText"></h2>
+       <button id="restartBtn">RESTART</button>
+    </div>
 <script src="app.js"></script>
 </body>
-</html>
+</html>    
+  

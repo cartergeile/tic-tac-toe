@@ -1,46 +1,21 @@
-body {
+.cell {
+  width: 75px;
+  height: 75px;
+  border: 2px solid;
+  box-shadow: 0 0 0 2px;
+  line-height: 75px;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+#game {
+  font-family: "Permanent Marker", cursive;
   text-align: center;
 }
 
-h1 {
-  color: rgb(20, 77, 151);
-  font-size: 50px;
-}
-
-#b1, #b2, #b3, #b4, #b5, #b6, #b7, #b8, #b9 {
-  width: 100px;
-  height: 100px;
+#cellContainer {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 225px;
   margin: auto;
-  border: 1px solid black;
-  border-radius: 6px;
-  font-size: 50px;
-  text-align: center;
-}
-
-#button {
-  box-sizing: border-box;
-  width: 95px;
-  height: 40px;
-  border: 1px solid black;
-  margin: auto;
-  border-radius: 5px;
-  font-family: sans-serif;
-  background-color: rgb(20, 77, 151);
-  color: white;
-}
-
-#button:hover {
-  background-color: gray;
-  color: black;
-}
-
-#print {
-  font-family: sans-serif;
-  color: rgb(20, 77, 151);
-  font-size: 30px;
-}
-
-#instructions {
-  color: rgb(28, 83, 115);
-  font-size: 20px;
 }
