@@ -4,29 +4,29 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tik Tac Toe</title>
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="app.js"></script>
 </head>
-
 <body>
-  <div id="game">
-      <h1>Tic Tac Toe</h1>
-      <div id ='cellContainer'>
-          <div cellIndex="0" class="cell"></div> 
-          <div cellIndex="1" class="cell"></div>
-          <div cellIndex="2" class="cell"></div>
-          <div cellIndex="3" class="cell"></div>
-          <div cellIndex="4" class="cell"></div>
-          <div cellIndex="5" class="cell"></div>
-          <div cellIndex="6" class="cell"></div>
-          <div cellIndex="7" class="cell"></div>
-          <div cellIndex="8" class="cell"></div>   
-       </div>  
-       <h2 id="statusText"></h2>
-       <button id="restartBtn">RESTART</button>
+  <div class="container">
+    <h1 id="playerText">Tic Tac Toe</h1>
+    <button id="restartBtn">Restart</button>
+
+    <div id="gameboard">
+      <div class="box" id="0"></div>
+      <div class="box" id="1"></div>
+      <div class="box" id="2"></div>
+      <div class="box" id="3"></div>
+      <div class="box" id="4"></div>
+      <div class="box" id="5"></div>
+      <div class="box" id="6"></div>
+      <div class="box" id="7"></div>
+      <div class="box" id="8"></div>
     </div>
-<script src="app.js"></script>
+  </div>
+
+
+
+  <script src="app.js"></script>
 </body>
-</html>    
-  
+</html>

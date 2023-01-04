@@ -1,8 +1,45 @@
-const cells = document.querySelectorAll('.cell')
-const statusText = document.querySelector('#statusText')
-const restartBtn = document.querySelector('#restartBtn')
+let playerText = document.getElementById('playerText')
+let restartBtn = document.getElementById('restartBtn')
+let boxes = Array.from(document.getElementsByClassName('box'))
 
-const winConditions = [
+let winnerIndicator = getComputedStyle(document.body).getPropertyValue('--winning-blocks')
+let drawIndicator = getComputedStyle(document.body).getPropertyValue('--draw-blocks')
+
+
+const O_TEXT = "O"
+const X_TEXT = "X"
+let currentPlayer = X_TEXT
+let spaces = Array(9).fill(null)
+let count_plays = 0
+const startGame = () => {
+  boxes.forEach(box => box.addEventListener('click', boxClicked))
+}
+
+function boxClicked(e) {
+  const id = e.target.id
+
+  if(!spaces[id] && count_plays < 9){
+    spaces[id] = currentPlayer
+    e.target.innerText = currentPlayer
+
+    if(playerHasWon() !==false){
+      playerText.innerHTML = `${currentPlayer} has won!`
+      let winning_blocks = playerHasWon()
+      count_plays = 10
+      winning_blocks.map(box => boxes[box].style.backgroundColor=winnerIndicator)
+      return
+    }
+    count_plays++
+    currentPlayer = currentPlayer == X_TEXT ? O_TEXT : X_TEXT
+  }
+
+  if(count_plays === 9) {
+    playerText.innerHTML = 'It is a Draw!'
+    boxes.forEach(box => box.style.color=drawIndicator)
+  }
+}
+
+const winningCombos = [
   [0, 1, 2],
   [3, 4, 5],
   [6, 7, 8],
@@ -10,82 +47,34 @@ const winConditions = [
   [1, 4, 7],
   [2, 5, 8],
   [0, 4, 8],
-  [2, 4, 6]
+  [2, 4, 6],
 ]
 
-let options = ['', '', '', '', '', '', '', '', '']
-let currentPlayer = 'X'
-let running = false
+function playerHasWon() {
+    for(const condition of winningCombos) {
+      let [a, b, c] = condition
 
-initializeGame()
-
-function initializeGame() {
-  cells.forEach(cell => cell.addEventListener('click', cellClicked))
-  restartBtn.addEventListener('click', restartGame)
-  statusText.textContent = `${currentPlayer}'s turn`
-  running = true
-}
-
-function cellClicked() {
-  const cellIndex = this.getAttribute('cellIndex')
-
-  if (options[cellIndex] != '' || !running) {
-    return
-  }
-
-  updateCell(this, cellIndex)
-  checkWinner()
-  changePlayer()
-}
-
-function updateCell(cell, index) {
-  options[index] = currentPlayer
-  cell.textContent = currentPlayer
-
-}
-
-function changePlayer() {
-  currentPlayer = (currentPlayer == 'X') ? 'O' : 'X'
-  statusText.textContent = `${currentPlayer}'s turn`
-}
-
-function checkWinner() {
-  let roundWon = false
-
-  for (let i = 0; i < winConditions.length; i++) {
-    const condition = winConditions[i]
-    const cellA = options[condition[0]]
-    const cellB = options[condition[1]]
-    const cellC = options[condition[2]]
-
-    if (cellA == '' || cellB == '' || cellC == '') {
-        continue
+      if(spaces[a] && (spaces[a] == spaces[b] && spaces[a] == spaces[c])) {
+        return [a, b, c]
+      }
     }
-    if (cellA == cellB && cellB == cellC) {
-      roundWon = true
-      break
-    }
-  }
-
-  if (roundWon) {
-    statusText.textContent = `${currentPlayer} wins!`
-    running = false
-  }
-  else if (!options.includes('')) {
-    statusText.textContent = `Draw!`
-    running = false
-  }
-  else {
-    changePlayer()
-  }
-
+    return false
 }
 
-function restartGame() {
-  currentPlayer = 'X'
-  options = [ '', '', '', '', '', '', '', '', '']
-  statusText.textContent = `${currentPlayer}'s turn`
-  cells.forEach(cell => cell.textContent = '')
-  running = true
+restartBtn.addEventListener('click', restart)
+
+function restart() {
+  spaces.fill(null)
+  count_plays = 0
+  boxes.forEach( box => {
+    box.innerText = ''
+    box.style.backgroundColor=''
+    box.style.color = '#f2c14e'
+  })
+
+  playerText.innerHTML = 'Tic Tac Toe'
+
+  currentPlayer = X_TEXT
 }
 
+startGame()
